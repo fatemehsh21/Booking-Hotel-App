@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-
+const BASE_URL = "https://hotels-json.onrender.com";
 const HotelContext = createContext();
 export default function HotelsProvider({ children }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,14 +13,14 @@ export default function HotelsProvider({ children }) {
   const [isLoadingCurrHotel, setIsLoadingCurrHotel] = useState(false);
   const room = JSON.parse(searchParams.get("options"))?.room;
   const { data: hotels, isLoading } = useFetch(
-    "http://localhost:5000/hotels",
+    `${BASE_URL}/hotels`,
     `q=${destination || ""}&accommodates_gte=${room || ""}`
   );
 
   async function getHotel(id) {
     setIsLoadingCurrHotel(true);
     try {
-      const { data } = await axios.get(`http://localhost:5000/hotels/${id}`);
+      const { data } = await axios.get(`${BASE_URL}/hotels/${id}`);
       setCurrentHotel(data);
       setIsLoadingCurrHotel(false);
     } catch (err) {

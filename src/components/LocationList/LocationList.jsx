@@ -1,8 +1,9 @@
 import React from "react";
 import useFetch from "../../hooks/useFetch";
 
+const BASE_URL = "https://hotels-json.onrender.com";
 function LocationList() {
-  const { data, isLoading } = useFetch("http://localhost:5000/hotels", "");
+  const { data, isLoading } = useFetch(`${BASE_URL}/hotels`, "");
   if (isLoading) return <p>Loading ...</p>;
   return (
     <div className="nearbyLocation">

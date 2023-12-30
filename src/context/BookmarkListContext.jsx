@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://hotels-json.onrender.com";
 const BookmarkContext = createContext();
 
 const initialState = {
