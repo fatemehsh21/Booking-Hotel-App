@@ -8,7 +8,7 @@ This project developed by HTML, CSS and React.js
 npm i
 ```
 
-3. Start dev server
+2. Start dev server
 ```bash
 npm run server
 npm run dev
